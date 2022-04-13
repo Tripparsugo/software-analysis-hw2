@@ -1,0 +1,230 @@
+[429][      debug] Loading models took 485ms
+[429][environment] CWD = /HWS/HW2/JAdventure-master
+[429][environment] No .inferconfig file found
+[429][environment] Project root = /HWS/HW2/JAdventure-master
+[429][environment] INFER_ARGS =   @/tmp/args.tmp.7e52dd
+[429][environment] command line arguments:   /tools/bin/infer run -j 1 -- mvn clean compile
+[429][environment] Available memory at startup: 1137 MB
+[429][environment] Active checkers: self-in-block (C/C++/ObjC), starvation (C/C++/ObjC, Java), uninit (C/C++/ObjC), siof (C/C++/ObjC), dotnet-resource-leak (C#/.Net), racerd (C/C++/ObjC, Java), liveness (C/C++/ObjC), inefficient-keyset-iterator (Java), fragment-retains-view (Java), biabduction (C/C++/ObjC, Java, C#/.Net)
+[429][environment] Scheduler: file
+[429][environment] Cores used: 1
+[429][environment] Infer version v1.1.0
+[429][environment] Copyright 2009 - present Facebook. All Rights Reserved.
+[429][environment] 
+[429][   progress] Capturing in maven mode...
+[429][      debug] Running maven capture:
+[429][      debug] mvn 'clean' 'compile' '-P' 'infer-capture'
+
+[508][environment] CWD = /HWS/HW2/JAdventure-master
+[508][environment] No .inferconfig file found
+[508][environment] Project root = /HWS/HW2/JAdventure-master
+[508][environment] INFER_ARGS =   @/tmp/args.tmp.abc758
+[508][environment] command line arguments:   /tools/infer/lib/infer/infer/bin/infer
+[508][environment]                           @/tmp/org.codehaus.plexus.compiler.javac.JavacCompiler7283515214448292765arguments
+[508][environment] Available memory at startup: 658 MB
+[508][environment] Active checkers: self-in-block (C/C++/ObjC), starvation (C/C++/ObjC, Java), uninit (C/C++/ObjC), siof (C/C++/ObjC), dotnet-resource-leak (C#/.Net), racerd (C/C++/ObjC, Java), liveness (C/C++/ObjC), inefficient-keyset-iterator (Java), fragment-retains-view (Java), biabduction (C/C++/ObjC, Java, C#/.Net)
+[508][      debug] Current working directory: '/HWS/HW2/JAdventure-master'
+[508][      debug] Trying to execute: javac '-J-Duser.language=en' '@/tmp/org.codehaus.plexus.compiler.javac.JavacCompiler7283515214448292765arguments' '@/HWS/HW2/JAdventure-master/infer-out/tmp/javac_args.tmp.d19110' 2>'/HWS/HW2/JAdventure-master/infer-out/tmp/javac.tmp.7469fb.out'
+[508][      debug] *** Success. Logs:
+[508][      debug] Translating 47 source files (54 classes)
+[508][      debug] done capturing all files
+[508][      debug] GC stats for capture:
+[508][      debug]   minor_words: 2.31796e+07
+[508][      debug]   promoted_words: 1.60653e+06
+[508][      debug]   major_words: 2.05805e+06
+[508][      debug]   minor_collections: 49
+[508][      debug]   major_collections: 4
+[508][      debug]   compactions: 0
+[508][      debug]   top_heap_words: 2026496
+[508][      debug]   
+[508][      debug] GC stats for main_process_full:
+[508][      debug]   minor_words: 2.45626e+07
+[508][      debug]   promoted_words: 1.7722e+06
+[508][      debug]   major_words: 2.24437e+06
+[508][      debug]   minor_collections: 53
+[508][      debug]   major_collections: 6
+[508][      debug]   compactions: 1
+[508][      debug]   top_heap_words: 2026496
+[508][      debug]   
+[508][environment] Scheduler: file
+[508][environment] Cores used: 1
+[508][environment] [429][      debug] GC stats for capture:
+[429][      debug]   minor_words: 39915
+[429][      debug]   promoted_words: 0
+[429][      debug]   major_words: 0
+[429][      debug]   minor_collections: 0
+[429][      debug]   major_collections: 0
+[429][      debug]   compactions: 0
+[429][      debug]   top_heap_words: 760832
+[429][      debug]   
+[429][   progress] Found 47 source files to analyze in /HWS/HW2/JAdventure-master/infer-out
+[429][   progress] src/main/java/com/jadventure/game/CharacterChange.java starting
+[429][   progress] src/main/java/com/jadventure/game/CharacterChange.java DONE
+[429][   progress] src/main/java/com/jadventure/game/Client.java starting
+[429][   progress] src/main/java/com/jadventure/game/Client.java DONE
+[429][   progress] src/main/java/com/jadventure/game/DeathException.java starting
+[429][   progress] src/main/java/com/jadventure/game/DeathException.java DONE
+[429][   progress] src/main/java/com/jadventure/game/Game.java starting
+[429][   progress] src/main/java/com/jadventure/game/Game.java DONE
+[429][   progress] src/main/java/com/jadventure/game/GameBeans.java starting
+[429][   progress] src/main/java/com/jadventure/game/GameBeans.java DONE
+[429][   progress] src/main/java/com/jadventure/game/GameModeType.java starting
+[429][   progress] src/main/java/com/jadventure/game/GameModeType.java DONE
+[429][   progress] src/main/java/com/jadventure/game/JAdventure.java starting
+[429][   progress] src/main/java/com/jadventure/game/JAdventure.java DONE
+[429][   progress] src/main/java/com/jadventure/game/QueueProvider.java starting
+[429][   progress] src/main/java/com/jadventure/game/QueueProvider.java DONE
+[429][   progress] src/main/java/com/jadventure/game/Trading.java starting
+[429][   progress] src/main/java/com/jadventure/game/Trading.java DONE
+[429][   progress] src/main/java/com/jadventure/game/conversation/ActionType.java starting
+[429][   progress] src/main/java/com/jadventure/game/conversation/ActionType.java DONE
+[429][   progress] src/main/java/com/jadventure/game/conversation/ConditionType.java starting
+[429][   progress] src/main/java/com/jadventure/game/conversation/ConditionType.java DONE
+[429][   progress] src/main/java/com/jadventure/game/conversation/ConversationManager.java starting
+[429][   progress] src/main/java/com/jadventure/game/conversation/ConversationManager.java DONE
+[429][   progress] src/main/java/com/jadventure/game/conversation/Line.java starting
+[429][   progress] src/main/java/com/jadventure/game/conversation/Line.java DONE
+[429][   progress] src/main/java/com/jadventure/game/entities/Entity.java starting
+[429][   progress] src/main/java/com/jadventure/game/entities/Entity.java DONE
+[429][   progress] src/main/java/com/jadventure/game/entities/EquipmentLocation.java starting
+[429][   progress] src/main/java/com/jadventure/game/entities/EquipmentLocation.java DONE
+[429][   progress] src/main/java/com/jadventure/game/entities/NPC.java starting
+[429][   progress] src/main/java/com/jadventure/game/entities/NPC.java DONE
+[429][   progress] src/main/java/com/jadventure/game/entities/Player.java starting
+[429][   progress] src/main/java/com/jadventure/game/entities/Player.java DONE
+[429][   progress] src/main/java/com/jadventure/game/items/Item.java starting
+[429][   progress] src/main/java/com/jadventure/game/items/Item.java DONE
+[429][   progress] src/main/java/com/jadventure/game/items/ItemStack.java starting
+[429][   progress] src/main/java/com/jadventure/game/items/ItemStack.java DONE
+[429][   progress] src/main/java/com/jadventure/game/items/Storage.java starting
+[429][   progress] src/main/java/com/jadventure/game/items/Storage.java DONE
+[429][   progress] src/main/java/com/jadventure/game/menus/BattleMenu.java starting
+[429][   progress] src/main/java/com/jadventure/game/menus/BattleMenu.java DONE
+[429][   progress] src/main/java/com/jadventure/game/menus/ChooseClassMenu.java starting
+[429][   progress] src/main/java/com/jadventure/game/menus/ChooseClassMenu.java DONE
+[429][   progress] src/main/java/com/jadventure/game/menus/MainMenu.java starting
+[429][   progress] src/main/java/com/jadventure/game/menus/MainMenu.java DONE
+[429][   progress] src/main/java/com/jadventure/game/menus/MenuItem.java starting
+[429][   progress] src/main/java/com/jadventure/game/menus/MenuItem.java DONE
+[429][   progress] src/main/java/com/jadventure/game/menus/Menus.java starting
+[429][   progress] src/main/java/com/jadventure/game/menus/Menus.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Bugbear.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Bugbear.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Giant.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Giant.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Goblin.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Goblin.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Monster.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Monster.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/MonsterFactory.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/MonsterFactory.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Skeleton.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Skeleton.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Troll.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Troll.java DONE
+[429][   progress] src/main/java/com/jadventure/game/monsters/Wolf.java starting
+[429][   progress] src/main/java/com/jadventure/game/monsters/Wolf.java DONE
+[429][   progress] src/main/java/com/jadventure/game/navigation/Coordinate.java starting
+[429][   progress] src/main/java/com/jadventure/game/navigation/Coordinate.java DONE
+[429][   progress] src/main/java/com/jadventure/game/navigation/Direction.java starting
+[429][   progress] src/main/java/com/jadventure/game/navigation/Direction.java DONE
+[429][   progress] src/main/java/com/jadventure/game/navigation/ILocation.java starting
+[429][   progress] src/main/java/com/jadventure/game/navigation/ILocation.java DONE
+[429][   progress] src/main/java/com/jadventure/game/navigation/Location.java starting
+[429][   progress] src/main/java/com/jadventure/game/navigation/Location.java DONE
+[429][   progress] src/main/java/com/jadventure/game/navigation/LocationType.java starting
+[429][   progress] src/main/java/com/jadventure/game/navigation/LocationType.java DONE
+[429][   progress] src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java starting
+[429][   progress] src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java DONE
+[429][   progress] src/main/java/com/jadventure/game/prompts/Command.java starting
+[429][   progress] src/main/java/com/jadventure/game/prompts/Command.java DONE
+[429][   progress] src/main/java/com/jadventure/game/prompts/CommandCollection.java starting
+[429][   progress] src/main/java/com/jadventure/game/prompts/CommandCollection.java DONE
+[429][   progress] src/main/java/com/jadventure/game/prompts/CommandParser.java starting
+[429][   progress] src/main/java/com/jadventure/game/prompts/CommandParser.java DONE
+[429][   progress] src/main/java/com/jadventure/game/repository/EncounteredNpcRepository.java starting
+[429][   progress] src/main/java/com/jadventure/game/repository/EncounteredNpcRepository.java DONE
+[429][   progress] src/main/java/com/jadventure/game/repository/ItemRepository.java starting
+[429][   progress] src/main/java/com/jadventure/game/repository/ItemRepository.java DONE
+[429][   progress] src/main/java/com/jadventure/game/repository/LocationRepository.java starting
+[429][   progress] src/main/java/com/jadventure/game/repository/LocationRepository.java DONE
+[429][   progress] src/main/java/com/jadventure/game/repository/NpcRepository.java starting
+[429][   progress] src/main/java/com/jadventure/game/repository/NpcRepository.java DONE
+[429][   progress] src/main/java/com/jadventure/game/repository/RepositoryException.java starting
+[429][   progress] src/main/java/com/jadventure/game/repository/RepositoryException.java DONE
+[429][      debug] Backend stats:
+[429][      debug]   summary_file_try_load= 12270
+[429][      debug]   summary_read_from_disk= 480
+[429][      debug]   summary_cache_hits= 15575 (55%)
+[429][      debug]   summary_cache_misses= 12270
+[429][      debug]   ondemand_procs_analyzed= 389
+[429][      debug]   ondemand_local_cache_hits= 14877 (95%)
+[429][      debug]   ondemand_local_cache_misses= 674
+[429][      debug]   proc_locker_lock_time_user= 0.00000000
+[429][      debug]   proc_locker_lock_time_sys= 0.00000000
+[429][      debug]   proc_locker_lock_time_wall= 0.00000000
+[429][      debug]   proc_locker_unlock_time_user= 0.00000000
+[429][      debug]   proc_locker_unlock_time_sys= 0.00000000
+[429][      debug]   proc_locker_unlock_time_wall= 0.00000000
+[429][      debug]   restart_scheduler_useful_time_user= 0.00000000
+[429][      debug]   restart_scheduler_useful_time_sys= 0.00000000
+[429][      debug]   restart_scheduler_useful_time_wall= 0.00000000
+[429][      debug]   restart_scheduler_total_time_user= 0.00000000
+[429][      debug]   restart_scheduler_total_time_sys= 0.00000000
+[429][      debug]   restart_scheduler_total_time_wall= 0.00000000
+[429][      debug]   
+[429][      debug] GC stats for backend_stats.:
+[429][      debug]   minor_words: 1.24871e+10
+[429][      debug]   promoted_words: 6.53605e+07
+[429][      debug]   major_words: 8.01251e+07
+[429][      debug]   minor_collections: 11956
+[429][      debug]   major_collections: 105
+[429][      debug]   compactions: 0
+[429][      debug]   top_heap_words: 4689408
+[429][      debug]   
+[429][      debug] Analysis phase finished in 3min25s
+[429][      debug] backend_stats.scheduler_process_analysis_time_user= 200.63213700
+[429][      debug] backend_stats.scheduler_process_analysis_time_sys= 0.38425300
+[429][      debug] backend_stats.scheduler_process_analysis_time_wall= 205.13478672
+[429][      debug] GC stats for analysis_scheduler:
+[429][      debug]   minor_words: 1.24871e+10
+[429][      debug]   promoted_words: 6.53605e+07
+[429][      debug]   major_words: 8.01256e+07
+[429][      debug]   minor_collections: 11956
+[429][      debug]   major_collections: 105
+[429][      debug]   compactions: 0
+[429][      debug]   top_heap_words: 4689408
+[429][      debug]   
+[429][      debug] GC stats for report:
+[429][      debug]   minor_words: 223165
+[429][      debug]   promoted_words: 0
+[429][      debug]   major_words: 29664
+[429][      debug]   minor_collections: 0
+[429][      debug]   major_collections: 0
+[429][      debug]   compactions: 0
+[429][      debug]   top_heap_words: 4689408
+[429][      debug]   
+[429][      debug] GC stats for main_process_full:
+[429][      debug]   minor_words: 1.2489e+10
+[429][      debug]   promoted_words: 6.55262e+07
+[429][      debug]   major_words: 8.08469e+07
+[429][      debug]   minor_collections: 11960
+[429][      debug]   major_collections: 107
+[429][      debug]   compactions: 1
+[429][      debug]   top_heap_words: 4689408
+[429][      debug]   
+
+[540][      phase] ============================================================
+[540][      phase] = New infer execution begins
+[540][      phase] ============================================================
+[540][environment] CWD = /HWS/HW2/JAdventure-master
+[540][environment] No .inferconfig file found
+[540][environment] Project root = /HWS/HW2/JAdventure-master
+[540][environment] INFER_ARGS =   @/tmp/args.tmp.18aec7
+[540][environment] command line arguments:   /tools/bin/infer explore --html
+[540][environment] Available memory at startup: 1163 MB
+[540][environment] Active checkers: self-in-block (C/C++/ObjC), starvation (C/C++/ObjC, Java), uninit (C/C++/ObjC), siof (C/C++/ObjC), dotnet-resource-leak (C#/.Net), racerd (C/C++/ObjC, Java), liveness (C/C++/ObjC), inefficient-keyset-iterator (Java), fragment-retains-view (Java), biabduction (C/C++/ObjC, Java, C#/.Net)
+[540][     result] Saved HTML report in '/HWS/HW2/JAdventure-master/infer-out/report.html/index.html'
+[540][environment] Scheduler: file
+[540][environment] Cores used: 0
+[540][environment] 

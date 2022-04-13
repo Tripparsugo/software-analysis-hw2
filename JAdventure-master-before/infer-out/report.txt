@@ -1,0 +1,93 @@
+#0
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:42: error: Null Dereference
+  object `appendItem` last assigned on line 41 could be null and is dereferenced at line 42.
+  40.                   try {
+  41.                       Item appendItem = itemRepo.getItem(command.substring(3).trim());
+  42. >                     if (appendItem.getName() != null)
+  43.                           player.addItemToStorage(appendItem);
+  44.                   } catch (RepositoryException ex) {
+
+#1
+src/main/java/com/jadventure/game/Game.java:51: error: Null Dereference
+  object `locationRepo` last assigned on line 50 could be null and is dereferenced at line 51.
+  49.           player.setName(userInput);
+  50.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+  51. >         this.player.setLocation(locationRepo.getInitialLocation());
+  52.           player.save();
+  53.           QueueProvider.offer("Welcome to Silliya, " + player.getName() + ".");
+
+#2
+src/main/java/com/jadventure/game/entities/Player.java:92: error: Null Dereference
+  object returned by `com.jadventure.game.entities.Player.characterLevels.get(characterType)` could be null and is dereferenced at line 92.
+  90.   
+  91.       public int getCharacterLevel(String characterType) {
+  92. >         int characterLevel = this.characterLevels.get(characterType);
+  93.           return characterLevel;
+  94.       }
+
+#3
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:103: error: Null Dereference
+  object returned by `line.get("player")` could be null and is dereferenced at line 103.
+  101.               }
+  102.           }
+  103. >         String playerPrompt = line.get("player").getAsString();
+  104.           String text = line.get("text").getAsString();
+  105.           String[] con = line.get("condition").getAsString().split("=");
+
+#4
+src/main/java/com/jadventure/game/Trading.java:116: error: Null Dereference
+  object returned by `itemValues.get(itemIds.get(itemName))` could be null and is dereferenced at line 116.
+  114.   
+  115.           if (itemIds.containsKey(itemName)) {
+  116. >             int itemValue = itemValues.get(itemIds.get(itemName));
+  117.               Item item = itemIdtoItem.get(itemIds.get(itemName));
+  118.               
+
+#5
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:172: error: Null Dereference
+  object `requiredItem` last assigned on line 171 could be null and is dereferenced by call to `hasItem(...)` at line 172.
+  170.                   ItemRepository itemRepo = GameBeans.getItemRepository();
+  171.                   Item requiredItem = itemRepo.getItem(line.getConditionParameter());
+  172. >                 return player.hasItem(requiredItem);
+  173.               case CHAR_TYPE:
+  174.                   String charType = line.getConditionParameter();
+
+#6
+src/main/java/com/jadventure/game/entities/Player.java:245: error: Null Dereference
+  object `weapon` last assigned on line 244 could be null and is dereferenced at line 245.
+  243.       public void getStats(){
+  244.           Item weapon = itemRepo.getItem(getWeapon());
+  245. >         String weaponName = weapon.getName();
+  246.           if (weaponName.equals(null)) {
+  247.               weaponName = "hands";
+
+#7
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:290: error: Null Dereference
+  object `locationRepo` last assigned on line 289 could be null and is dereferenced at line 290.
+  288.       public void command_teleport(String arg) {
+  289.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+  290. >         ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+  291.           ILocation oldLocation = player.getLocation();
+  292.           try {
+
+#8
+src/main/java/com/jadventure/game/entities/Entity.java:317: error: Null Dereference
+  object `hands` last assigned on line 304 could be null and is dereferenced at line 317.
+  315.               locations.put(EquipmentLocation.FEET, "Feet");
+  316.               for (Map.Entry<EquipmentLocation, Item> item : equipment.entrySet()) {
+  317. >                 if (item.getKey() != null && !hands.equals(item.getValue()) && item.getValue() != null) {
+  318.                       QueueProvider.offer(locations.get(item.getKey()) + " - " + item.getValue().getName());
+  319.                   } else {
+
+#9
+src/main/java/com/jadventure/game/entities/Player.java:376: error: Null Dereference
+  object `weapon` last assigned on line 375 could be null and is dereferenced at line 376.
+  374.               Item itemToDrop = itemRepo.getItem(item.getId());
+  375.               Item weapon = itemRepo.getItem(getWeapon());
+  376. >             String wName = weapon.getName();
+  377.   
+  378.               if (itemName.equals(wName)) {
+
+Found 10 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULL_DEREFERENCE): 10

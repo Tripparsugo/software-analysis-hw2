@@ -1,0 +1,171 @@
+#1
+src/main/java/com/jadventure/game/Game.java:51: error: Null Dereference
+  object `locationRepo` last assigned on line 50 could be null and is dereferenced at line 51.
+
+src/main/java/com/jadventure/game/Game.java:46: start of procedure newGameStart(...)
+44.        * character and welcomes him / her. After that, it goes to the normal game prompt.
+45.        */
+46. >     public void newGameStart(Player player) throws DeathException {
+47.           QueueProvider.offer(player.getIntro());
+48.           String userInput = QueueProvider.take();
+
+src/main/java/com/jadventure/game/Game.java:47: 
+45.        */
+46.       public void newGameStart(Player player) throws DeathException {
+47. >         QueueProvider.offer(player.getIntro());
+48.           String userInput = QueueProvider.take();
+49.           player.setName(userInput);
+
+src/main/java/com/jadventure/game/entities/Entity.java:126: start of procedure getIntro()
+  124.       }
+  125.   
+  126. >     public String getIntro() {
+  127.           return this.intro;
+  128.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:127: return from a call to String Entity.getIntro()
+  125.   
+  126.       public String getIntro() {
+  127. >         return this.intro;
+  128.       }
+  129.       
+
+src/main/java/com/jadventure/game/Game.java:47: Skipping offer(...): empty list of specs
+45.        */
+46.       public void newGameStart(Player player) throws DeathException {
+47. >         QueueProvider.offer(player.getIntro());
+48.           String userInput = QueueProvider.take();
+49.           player.setName(userInput);
+
+src/main/java/com/jadventure/game/QueueProvider.java:40: Definition of offer(...)
+  38.       }
+  39.   
+  40. >     public static void offer(String message) {
+  41.           logger.debug("offer( " + message + " )");
+  42.   
+
+src/main/java/com/jadventure/game/Game.java:48: Skipping take(): empty list of specs
+46.       public void newGameStart(Player player) throws DeathException {
+47.           QueueProvider.offer(player.getIntro());
+48. >         String userInput = QueueProvider.take();
+49.           player.setName(userInput);
+50.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+
+src/main/java/com/jadventure/game/QueueProvider.java:89: Definition of take()
+  87.       }
+  88.   
+  89. >     public static String take() {
+  90.           String message = null;
+  91.           if (GameModeType.SERVER == mode) {
+
+src/main/java/com/jadventure/game/Game.java:49: 
+47.           QueueProvider.offer(player.getIntro());
+48.           String userInput = QueueProvider.take();
+49. >         player.setName(userInput);
+50.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+51.           this.player.setLocation(locationRepo.getInitialLocation());
+
+src/main/java/com/jadventure/game/entities/Entity.java:118: start of procedure setName(...)
+  116.       }
+  117.   
+  118. >     public void setName(String name) {
+  119.           this.name = name;
+  120.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:119: 
+  117.   
+  118.       public void setName(String name) {
+  119. >         this.name = name;
+  120.       }
+  121.        
+
+src/main/java/com/jadventure/game/entities/Entity.java:120: return from a call to void Entity.setName(String)
+  118.       public void setName(String name) {
+  119.           this.name = name;
+  120. >     }
+  121.        
+  122.       public void setIntro(String intro) {
+
+src/main/java/com/jadventure/game/Game.java:50: 
+48.           String userInput = QueueProvider.take();
+49.           player.setName(userInput);
+50. >         LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+51.           this.player.setLocation(locationRepo.getInitialLocation());
+52.           player.save();
+
+src/main/java/com/jadventure/game/entities/Entity.java:114: start of procedure getName()
+  112.       }
+  113.   
+  114. >     public String getName() {
+  115.           return this.name;
+  116.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:115: return from a call to String Entity.getName()
+  113.   
+  114.       public String getName() {
+  115. >         return this.name;
+  116.       }
+  117.   
+
+src/main/java/com/jadventure/game/Game.java:50: 
+48.           String userInput = QueueProvider.take();
+49.           player.setName(userInput);
+50. >         LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+51.           this.player.setLocation(locationRepo.getInitialLocation());
+52.           player.save();
+
+src/main/java/com/jadventure/game/GameBeans.java:22: start of procedure getLocationRepository(...)
+  20.       }
+  21.   
+  22. >     public static LocationRepository getLocationRepository(String profile) {
+  23.           return LocationRepository.createRepo(profile);
+  24.       }
+
+src/main/java/com/jadventure/game/GameBeans.java:23: 
+  21.   
+  22.       public static LocationRepository getLocationRepository(String profile) {
+  23. >         return LocationRepository.createRepo(profile);
+  24.       }
+  25.   
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:49: start of procedure createRepo(...)
+    47.       }
+    48.   
+    49. >     public static LocationRepository createRepo(String profileName) {
+    50.           if ("".equals(profileName)) {
+    51.               return instance;
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:50: Taking true branch
+    48.   
+    49.       public static LocationRepository createRepo(String profileName) {
+    50. >         if ("".equals(profileName)) {
+    51.               return instance;
+    52.           }
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:51: 
+    49.       public static LocationRepository createRepo(String profileName) {
+    50.           if ("".equals(profileName)) {
+    51. >             return instance;
+    52.           }
+    53.           if (instance == null) {
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:58: return from a call to LocationRepository LocationRepository.createRepo(String)
+    56.               instance = new LocationRepository(profileName);
+    57.           }
+    58. >         return instance;
+    59.       }
+    60.   
+
+src/main/java/com/jadventure/game/GameBeans.java:23: return from a call to LocationRepository GameBeans.getLocationRepository(String)
+  21.   
+  22.       public static LocationRepository getLocationRepository(String profile) {
+  23. >         return LocationRepository.createRepo(profile);
+  24.       }
+  25.   
+
+src/main/java/com/jadventure/game/Game.java:51: 
+49.           player.setName(userInput);
+50.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+51. >         this.player.setLocation(locationRepo.getInitialLocation());
+52.           player.save();
+53.           QueueProvider.offer("Welcome to Silliya, " + player.getName() + ".");

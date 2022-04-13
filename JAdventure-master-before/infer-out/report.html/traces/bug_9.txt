@@ -1,0 +1,220 @@
+#9
+src/main/java/com/jadventure/game/entities/Player.java:376: error: Null Dereference
+  object `weapon` last assigned on line 375 could be null and is dereferenced at line 376.
+
+src/main/java/com/jadventure/game/entities/Player.java:367: start of procedure dropItem(...)
+365.       }
+366.   
+367. >     public void dropItem(String itemName) {
+368.           List<Item> itemMap = searchItem(itemName, getStorage());
+369.           if (itemMap.isEmpty()) {
+
+src/main/java/com/jadventure/game/entities/Player.java:368: 
+366.   
+367.       public void dropItem(String itemName) {
+368. >         List<Item> itemMap = searchItem(itemName, getStorage());
+369.           if (itemMap.isEmpty()) {
+370.               itemMap = searchEquipment(itemName, getEquipment());
+
+src/main/java/com/jadventure/game/entities/Entity.java:330: start of procedure getStorage()
+  328.       }
+  329.   
+  330. >     public Storage getStorage() {
+  331.           return storage;
+  332.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:331: return from a call to Storage Entity.getStorage()
+  329.   
+  330.       public Storage getStorage() {
+  331. >         return storage;
+  332.       }
+  333.   
+
+src/main/java/com/jadventure/game/entities/Player.java:368: 
+366.   
+367.       public void dropItem(String itemName) {
+368. >         List<Item> itemMap = searchItem(itemName, getStorage());
+369.           if (itemMap.isEmpty()) {
+370.               itemMap = searchEquipment(itemName, getEquipment());
+
+src/main/java/com/jadventure/game/entities/Player.java:343: start of procedure searchItem(...)
+  341.       }
+  342.   
+  343. >     public List<Item> searchItem(String itemName, Storage storage) {
+  344.           return storage.search(itemName);
+  345.       }
+
+src/main/java/com/jadventure/game/entities/Player.java:344: Skipping search(...): empty list of specs
+  342.   
+  343.       public List<Item> searchItem(String itemName, Storage storage) {
+  344. >         return storage.search(itemName);
+  345.       }
+  346.       
+
+src/main/java/com/jadventure/game/items/Storage.java:131: Definition of search(...)
+    129.       }
+    130.   
+    131. >     public List<Item> search(String name) {
+    132.           List<Item> items = new ArrayList<>();
+    133.           for (ItemStack itemStack : itemStacks) {
+
+src/main/java/com/jadventure/game/entities/Player.java:344: return from a call to List Player.searchItem(String,Storage)
+  342.   
+  343.       public List<Item> searchItem(String itemName, Storage storage) {
+  344. >         return storage.search(itemName);
+  345.       }
+  346.       
+
+src/main/java/com/jadventure/game/entities/Player.java:369: Taking false branch
+367.       public void dropItem(String itemName) {
+368.           List<Item> itemMap = searchItem(itemName, getStorage());
+369. >         if (itemMap.isEmpty()) {
+370.               itemMap = searchEquipment(itemName, getEquipment());
+371.           }
+
+src/main/java/com/jadventure/game/entities/Player.java:372: Taking true branch
+370.               itemMap = searchEquipment(itemName, getEquipment());
+371.           }
+372. >         if (!itemMap.isEmpty()) {
+373.               Item item = itemMap.get(0);
+374.               Item itemToDrop = itemRepo.getItem(item.getId());
+
+src/main/java/com/jadventure/game/entities/Player.java:373: 
+371.           }
+372.           if (!itemMap.isEmpty()) {
+373. >             Item item = itemMap.get(0);
+374.               Item itemToDrop = itemRepo.getItem(item.getId());
+375.               Item weapon = itemRepo.getItem(getWeapon());
+
+src/main/java/com/jadventure/game/entities/Player.java:374: 
+372.           if (!itemMap.isEmpty()) {
+373.               Item item = itemMap.get(0);
+374. >             Item itemToDrop = itemRepo.getItem(item.getId());
+375.               Item weapon = itemRepo.getItem(getWeapon());
+376.               String wName = weapon.getName();
+
+src/main/java/com/jadventure/game/items/Item.java:44: start of procedure getId()
+  42.       }
+  43.   
+  44. >     public String getId() {
+  45.           return id;
+  46.       }
+
+src/main/java/com/jadventure/game/items/Item.java:45: return from a call to String Item.getId()
+  43.   
+  44.       public String getId() {
+  45. >         return id;
+  46.       }
+  47.   
+
+src/main/java/com/jadventure/game/entities/Player.java:374: 
+372.           if (!itemMap.isEmpty()) {
+373.               Item item = itemMap.get(0);
+374. >             Item itemToDrop = itemRepo.getItem(item.getId());
+375.               Item weapon = itemRepo.getItem(getWeapon());
+376.               String wName = weapon.getName();
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking false branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:45: Taking false branch
+  43.               return null;
+  44.           }
+  45. > 	    if (!itemMap.containsKey(id)) {
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/entities/Player.java:375: 
+373.               Item item = itemMap.get(0);
+374.               Item itemToDrop = itemRepo.getItem(item.getId());
+375. >             Item weapon = itemRepo.getItem(getWeapon());
+376.               String wName = weapon.getName();
+377.   
+
+src/main/java/com/jadventure/game/entities/Entity.java:186: start of procedure getWeapon()
+  184.       }
+  185.   
+  186. >     public String getWeapon() {
+  187.           return weapon;
+  188.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:187: return from a call to String Entity.getWeapon()
+  185.   
+  186.       public String getWeapon() {
+  187. >         return weapon;
+  188.       }
+  189.   
+
+src/main/java/com/jadventure/game/entities/Player.java:375: 
+373.               Item item = itemMap.get(0);
+374.               Item itemToDrop = itemRepo.getItem(item.getId());
+375. >             Item weapon = itemRepo.getItem(getWeapon());
+376.               String wName = weapon.getName();
+377.   
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:43: 
+  41.   	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43. >             return null;
+  44.           }
+  45.   	    if (!itemMap.containsKey(id)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/entities/Player.java:376: 
+374.               Item itemToDrop = itemRepo.getItem(item.getId());
+375.               Item weapon = itemRepo.getItem(getWeapon());
+376. >             String wName = weapon.getName();
+377.   
+378.               if (itemName.equals(wName)) {

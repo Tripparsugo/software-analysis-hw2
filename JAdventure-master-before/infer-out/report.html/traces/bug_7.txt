@@ -1,0 +1,143 @@
+#7
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:290: error: Null Dereference
+  object `locationRepo` last assigned on line 289 could be null and is dereferenced at line 290.
+
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:288: start of procedure command_teleport(...)
+286.   
+287.       @Command(command="teleport", aliases={""}, description="Moves the player to specified coordinates", debug=true)
+288. >     public void command_teleport(String arg) {
+289.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+290.           ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:289: 
+287.       @Command(command="teleport", aliases={""}, description="Moves the player to specified coordinates", debug=true)
+288.       public void command_teleport(String arg) {
+289. >         LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+290.           ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+291.           ILocation oldLocation = player.getLocation();
+
+src/main/java/com/jadventure/game/entities/Entity.java:114: start of procedure getName()
+  112.       }
+  113.   
+  114. >     public String getName() {
+  115.           return this.name;
+  116.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:115: return from a call to String Entity.getName()
+  113.   
+  114.       public String getName() {
+  115. >         return this.name;
+  116.       }
+  117.   
+
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:289: 
+287.       @Command(command="teleport", aliases={""}, description="Moves the player to specified coordinates", debug=true)
+288.       public void command_teleport(String arg) {
+289. >         LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+290.           ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+291.           ILocation oldLocation = player.getLocation();
+
+src/main/java/com/jadventure/game/GameBeans.java:22: start of procedure getLocationRepository(...)
+  20.       }
+  21.   
+  22. >     public static LocationRepository getLocationRepository(String profile) {
+  23.           return LocationRepository.createRepo(profile);
+  24.       }
+
+src/main/java/com/jadventure/game/GameBeans.java:23: 
+  21.   
+  22.       public static LocationRepository getLocationRepository(String profile) {
+  23. >         return LocationRepository.createRepo(profile);
+  24.       }
+  25.   
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:49: start of procedure createRepo(...)
+    47.       }
+    48.   
+    49. >     public static LocationRepository createRepo(String profileName) {
+    50.           if ("".equals(profileName)) {
+    51.               return instance;
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:50: Taking true branch
+    48.   
+    49.       public static LocationRepository createRepo(String profileName) {
+    50. >         if ("".equals(profileName)) {
+    51.               return instance;
+    52.           }
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:51: 
+    49.       public static LocationRepository createRepo(String profileName) {
+    50.           if ("".equals(profileName)) {
+    51. >             return instance;
+    52.           }
+    53.           if (instance == null) {
+
+src/main/java/com/jadventure/game/repository/LocationRepository.java:58: return from a call to LocationRepository LocationRepository.createRepo(String)
+    56.               instance = new LocationRepository(profileName);
+    57.           }
+    58. >         return instance;
+    59.       }
+    60.   
+
+src/main/java/com/jadventure/game/GameBeans.java:23: return from a call to LocationRepository GameBeans.getLocationRepository(String)
+  21.   
+  22.       public static LocationRepository getLocationRepository(String profile) {
+  23. >         return LocationRepository.createRepo(profile);
+  24.       }
+  25.   
+
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:290: 
+288.       public void command_teleport(String arg) {
+289.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+290. >         ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+291.           ILocation oldLocation = player.getLocation();
+292.           try {
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:18: start of procedure Coordinate(...)
+  16.        * like {@code 'x, y, z'}
+  17.        */
+  18. >     public Coordinate(String rawCoordinate) {
+  19.           String[] parts = rawCoordinate.split(",");
+  20.           this.x = Integer.parseInt(parts[0]);
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:19: Skipping split(...): unknown method
+  17.        */
+  18.       public Coordinate(String rawCoordinate) {
+  19. >         String[] parts = rawCoordinate.split(",");
+  20.           this.x = Integer.parseInt(parts[0]);
+  21.           this.y = Integer.parseInt(parts[1]);
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:20: 
+  18.       public Coordinate(String rawCoordinate) {
+  19.           String[] parts = rawCoordinate.split(",");
+  20. >         this.x = Integer.parseInt(parts[0]);
+  21.           this.y = Integer.parseInt(parts[1]);
+  22.           this.z = Integer.parseInt(parts[2]);
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:21: 
+  19.           String[] parts = rawCoordinate.split(",");
+  20.           this.x = Integer.parseInt(parts[0]);
+  21. >         this.y = Integer.parseInt(parts[1]);
+  22.           this.z = Integer.parseInt(parts[2]);
+  23.       }
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:22: 
+  20.           this.x = Integer.parseInt(parts[0]);
+  21.           this.y = Integer.parseInt(parts[1]);
+  22. >         this.z = Integer.parseInt(parts[2]);
+  23.       }
+  24.   
+
+src/main/java/com/jadventure/game/navigation/Coordinate.java:23: return from a call to Coordinate.<init>(String)
+  21.           this.y = Integer.parseInt(parts[1]);
+  22.           this.z = Integer.parseInt(parts[2]);
+  23. >     }
+  24.   
+  25.       /**
+
+src/main/java/com/jadventure/game/prompts/CommandCollection.java:290: 
+288.       public void command_teleport(String arg) {
+289.           LocationRepository locationRepo = GameBeans.getLocationRepository(player.getName());
+290. >         ILocation newLocation = locationRepo.getLocation(new Coordinate(arg));
+291.           ILocation oldLocation = player.getLocation();
+292.           try {

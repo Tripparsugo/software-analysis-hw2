@@ -1,0 +1,73 @@
+#0
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:42: error: Null Dereference
+  object `appendItem` last assigned on line 41 could be null and is dereferenced at line 42.
+
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:35: start of procedure parse(...)
+33.           }
+34.       }
+35. >     public static boolean parse(Player player, String command){
+36.           boolean continuePrompt = true;
+37.           
+
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:36: 
+34.       }
+35.       public static boolean parse(Player player, String command){
+36. >         boolean continuePrompt = true;
+37.           
+38.           try {
+
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:39: Taking true branch
+37.           
+38.           try {
+39. >             if (command.startsWith("add")){
+40.                   try {
+41.                       Item appendItem = itemRepo.getItem(command.substring(3).trim());
+
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:41: 
+39.               if (command.startsWith("add")){
+40.                   try {
+41. >                     Item appendItem = itemRepo.getItem(command.substring(3).trim());
+42.                       if (appendItem.getName() != null)
+43.                           player.addItemToStorage(appendItem);
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:43: 
+  41.   	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43. >             return null;
+  44.           }
+  45.   	    if (!itemMap.containsKey(id)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:42: 
+40.                   try {
+41.                       Item appendItem = itemRepo.getItem(command.substring(3).trim());
+42. >                     if (appendItem.getName() != null)
+43.                           player.addItemToStorage(appendItem);
+44.                   } catch (RepositoryException ex) {

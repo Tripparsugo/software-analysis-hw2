@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Infer found 10 issues</title>
+</head>
+<body>
+<h2>List of issues found</h2>
+<ol start="0">
+<li>src/main/java/com/jadventure/game/prompts/BackpackDebugPrompt.java:42: error: Null Dereference
+  object `appendItem` last assigned on line 41 could be null and is dereferenced at line 42. (<a href="traces/bug_0.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/Game.java:51: error: Null Dereference
+  object `locationRepo` last assigned on line 50 could be null and is dereferenced at line 51. (<a href="traces/bug_1.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/entities/Player.java:92: error: Null Dereference
+  object returned by `com.jadventure.game.entities.Player.characterLevels.get(characterType)` could be null and is dereferenced at line 92. (<a href="traces/bug_2.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/conversation/ConversationManager.java:103: error: Null Dereference
+  object returned by `line.get("player")` could be null and is dereferenced at line 103. (<a href="traces/bug_3.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/Trading.java:116: error: Null Dereference
+  object returned by `itemValues.get(itemIds.get(itemName))` could be null and is dereferenced at line 116. (<a href="traces/bug_4.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/conversation/ConversationManager.java:172: error: Null Dereference
+  object `requiredItem` last assigned on line 171 could be null and is dereferenced by call to `hasItem(...)` at line 172. (<a href="traces/bug_5.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/entities/Player.java:245: error: Null Dereference
+  object `weapon` last assigned on line 244 could be null and is dereferenced at line 245. (<a href="traces/bug_6.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/prompts/CommandCollection.java:290: error: Null Dereference
+  object `locationRepo` last assigned on line 289 could be null and is dereferenced at line 290. (<a href="traces/bug_7.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/entities/Entity.java:317: error: Null Dereference
+  object `hands` last assigned on line 304 could be null and is dereferenced at line 317. (<a href="traces/bug_8.txt">trace</a>)</li><li>src/main/java/com/jadventure/game/entities/Player.java:376: error: Null Dereference
+  object `weapon` last assigned on line 375 could be null and is dereferenced at line 376. (<a href="traces/bug_9.txt">trace</a>)</li>
+</ol>
+</body>
+</html>

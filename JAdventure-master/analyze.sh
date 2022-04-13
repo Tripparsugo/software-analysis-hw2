@@ -1,0 +1,1 @@
+infer run -j 1 --default-checkers -- mvn clean compile

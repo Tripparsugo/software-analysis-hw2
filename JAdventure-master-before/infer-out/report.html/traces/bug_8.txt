@@ -1,0 +1,185 @@
+#8
+src/main/java/com/jadventure/game/entities/Entity.java:317: error: Null Dereference
+  object `hands` last assigned on line 304 could be null and is dereferenced at line 317.
+
+src/main/java/com/jadventure/game/entities/Entity.java:297: start of procedure printEquipment()
+295.       }
+296.   
+297. >     public void printEquipment() {
+298.           QueueProvider.offer("\n------------------------------------------------------------");
+299.           QueueProvider.offer("Equipped Items:");
+
+src/main/java/com/jadventure/game/entities/Entity.java:298: Skipping offer(...): empty list of specs
+296.   
+297.       public void printEquipment() {
+298. >         QueueProvider.offer("\n------------------------------------------------------------");
+299.           QueueProvider.offer("Equipped Items:");
+300.           if (equipment.keySet().size() == 0) {
+
+src/main/java/com/jadventure/game/QueueProvider.java:40: Definition of offer(...)
+  38.       }
+  39.   
+  40. >     public static void offer(String message) {
+  41.           logger.debug("offer( " + message + " )");
+  42.   
+
+src/main/java/com/jadventure/game/entities/Entity.java:299: Skipping offer(...): empty list of specs
+297.       public void printEquipment() {
+298.           QueueProvider.offer("\n------------------------------------------------------------");
+299. >         QueueProvider.offer("Equipped Items:");
+300.           if (equipment.keySet().size() == 0) {
+301.               QueueProvider.offer("--Empty--");
+
+src/main/java/com/jadventure/game/QueueProvider.java:40: Definition of offer(...)
+  38.       }
+  39.   
+  40. >     public static void offer(String message) {
+  41.           logger.debug("offer( " + message + " )");
+  42.   
+
+src/main/java/com/jadventure/game/entities/Entity.java:300: Taking false branch
+298.           QueueProvider.offer("\n------------------------------------------------------------");
+299.           QueueProvider.offer("Equipped Items:");
+300. >         if (equipment.keySet().size() == 0) {
+301.               QueueProvider.offer("--Empty--");
+302.           } else {
+
+src/main/java/com/jadventure/game/entities/Entity.java:303: 
+301.               QueueProvider.offer("--Empty--");
+302.           } else {
+303. >             int i = 0;
+304.               Item hands = itemRepo.getItem("hands");
+305.               Map<EquipmentLocation, String> locations = new HashMap<>();
+
+src/main/java/com/jadventure/game/entities/Entity.java:304: 
+302.           } else {
+303.               int i = 0;
+304. >             Item hands = itemRepo.getItem("hands");
+305.               Map<EquipmentLocation, String> locations = new HashMap<>();
+306.               locations.put(EquipmentLocation.HEAD, "Head");
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:43: 
+  41.   	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43. >             return null;
+  44.           }
+  45.   	    if (!itemMap.containsKey(id)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/entities/Entity.java:305: 
+303.               int i = 0;
+304.               Item hands = itemRepo.getItem("hands");
+305. >             Map<EquipmentLocation, String> locations = new HashMap<>();
+306.               locations.put(EquipmentLocation.HEAD, "Head");
+307.               locations.put(EquipmentLocation.CHEST, "Chest");
+
+src/main/java/com/jadventure/game/entities/Entity.java:306: Skipping put(...): unknown method
+304.               Item hands = itemRepo.getItem("hands");
+305.               Map<EquipmentLocation, String> locations = new HashMap<>();
+306. >             locations.put(EquipmentLocation.HEAD, "Head");
+307.               locations.put(EquipmentLocation.CHEST, "Chest");
+308.               locations.put(EquipmentLocation.LEFT_ARM, "Left arm");
+
+src/main/java/com/jadventure/game/entities/Entity.java:307: Skipping put(...): unknown method
+305.               Map<EquipmentLocation, String> locations = new HashMap<>();
+306.               locations.put(EquipmentLocation.HEAD, "Head");
+307. >             locations.put(EquipmentLocation.CHEST, "Chest");
+308.               locations.put(EquipmentLocation.LEFT_ARM, "Left arm");
+309.               locations.put(EquipmentLocation.LEFT_HAND, "Left hand");
+
+src/main/java/com/jadventure/game/entities/Entity.java:308: Skipping put(...): unknown method
+306.               locations.put(EquipmentLocation.HEAD, "Head");
+307.               locations.put(EquipmentLocation.CHEST, "Chest");
+308. >             locations.put(EquipmentLocation.LEFT_ARM, "Left arm");
+309.               locations.put(EquipmentLocation.LEFT_HAND, "Left hand");
+310.               locations.put(EquipmentLocation.RIGHT_ARM, "Right arm");
+
+src/main/java/com/jadventure/game/entities/Entity.java:309: Skipping put(...): unknown method
+307.               locations.put(EquipmentLocation.CHEST, "Chest");
+308.               locations.put(EquipmentLocation.LEFT_ARM, "Left arm");
+309. >             locations.put(EquipmentLocation.LEFT_HAND, "Left hand");
+310.               locations.put(EquipmentLocation.RIGHT_ARM, "Right arm");
+311.               locations.put(EquipmentLocation.RIGHT_HAND, "Right hand");
+
+src/main/java/com/jadventure/game/entities/Entity.java:310: Skipping put(...): unknown method
+308.               locations.put(EquipmentLocation.LEFT_ARM, "Left arm");
+309.               locations.put(EquipmentLocation.LEFT_HAND, "Left hand");
+310. >             locations.put(EquipmentLocation.RIGHT_ARM, "Right arm");
+311.               locations.put(EquipmentLocation.RIGHT_HAND, "Right hand");
+312.               locations.put(EquipmentLocation.BOTH_HANDS, "Both hands");
+
+src/main/java/com/jadventure/game/entities/Entity.java:311: Skipping put(...): unknown method
+309.               locations.put(EquipmentLocation.LEFT_HAND, "Left hand");
+310.               locations.put(EquipmentLocation.RIGHT_ARM, "Right arm");
+311. >             locations.put(EquipmentLocation.RIGHT_HAND, "Right hand");
+312.               locations.put(EquipmentLocation.BOTH_HANDS, "Both hands");
+313.               locations.put(EquipmentLocation.BOTH_ARMS, "Both arms");
+
+src/main/java/com/jadventure/game/entities/Entity.java:312: Skipping put(...): unknown method
+310.               locations.put(EquipmentLocation.RIGHT_ARM, "Right arm");
+311.               locations.put(EquipmentLocation.RIGHT_HAND, "Right hand");
+312. >             locations.put(EquipmentLocation.BOTH_HANDS, "Both hands");
+313.               locations.put(EquipmentLocation.BOTH_ARMS, "Both arms");
+314.               locations.put(EquipmentLocation.LEGS, "Legs");
+
+src/main/java/com/jadventure/game/entities/Entity.java:313: Skipping put(...): unknown method
+311.               locations.put(EquipmentLocation.RIGHT_HAND, "Right hand");
+312.               locations.put(EquipmentLocation.BOTH_HANDS, "Both hands");
+313. >             locations.put(EquipmentLocation.BOTH_ARMS, "Both arms");
+314.               locations.put(EquipmentLocation.LEGS, "Legs");
+315.               locations.put(EquipmentLocation.FEET, "Feet");
+
+src/main/java/com/jadventure/game/entities/Entity.java:314: Skipping put(...): unknown method
+312.               locations.put(EquipmentLocation.BOTH_HANDS, "Both hands");
+313.               locations.put(EquipmentLocation.BOTH_ARMS, "Both arms");
+314. >             locations.put(EquipmentLocation.LEGS, "Legs");
+315.               locations.put(EquipmentLocation.FEET, "Feet");
+316.               for (Map.Entry<EquipmentLocation, Item> item : equipment.entrySet()) {
+
+src/main/java/com/jadventure/game/entities/Entity.java:315: Skipping put(...): unknown method
+313.               locations.put(EquipmentLocation.BOTH_ARMS, "Both arms");
+314.               locations.put(EquipmentLocation.LEGS, "Legs");
+315. >             locations.put(EquipmentLocation.FEET, "Feet");
+316.               for (Map.Entry<EquipmentLocation, Item> item : equipment.entrySet()) {
+317.                   if (item.getKey() != null && !hands.equals(item.getValue()) && item.getValue() != null) {
+
+src/main/java/com/jadventure/game/entities/Entity.java:316: Taking true branch
+314.               locations.put(EquipmentLocation.LEGS, "Legs");
+315.               locations.put(EquipmentLocation.FEET, "Feet");
+316. >             for (Map.Entry<EquipmentLocation, Item> item : equipment.entrySet()) {
+317.                   if (item.getKey() != null && !hands.equals(item.getValue()) && item.getValue() != null) {
+318.                       QueueProvider.offer(locations.get(item.getKey()) + " - " + item.getValue().getName());
+
+src/main/java/com/jadventure/game/entities/Entity.java:317: Taking true branch
+315.               locations.put(EquipmentLocation.FEET, "Feet");
+316.               for (Map.Entry<EquipmentLocation, Item> item : equipment.entrySet()) {
+317. >                 if (item.getKey() != null && !hands.equals(item.getValue()) && item.getValue() != null) {
+318.                       QueueProvider.offer(locations.get(item.getKey()) + " - " + item.getValue().getName());
+319.                   } else {

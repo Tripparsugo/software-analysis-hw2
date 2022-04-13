@@ -1,0 +1,17 @@
+#2
+src/main/java/com/jadventure/game/entities/Player.java:92: error: Null Dereference
+  object returned by `com.jadventure.game.entities.Player.characterLevels.get(characterType)` could be null and is dereferenced at line 92.
+
+src/main/java/com/jadventure/game/entities/Player.java:91: start of procedure getCharacterLevel(...)
+89.       }
+90.   
+91. >     public int getCharacterLevel(String characterType) {
+92.           int characterLevel = this.characterLevels.get(characterType);
+93.           return characterLevel;
+
+src/main/java/com/jadventure/game/entities/Player.java:92: 
+90.   
+91.       public int getCharacterLevel(String characterType) {
+92. >         int characterLevel = this.characterLevels.get(characterType);
+93.           return characterLevel;
+94.       }

@@ -1,0 +1,80 @@
+#6
+src/main/java/com/jadventure/game/entities/Player.java:245: error: Null Dereference
+  object `weapon` last assigned on line 244 could be null and is dereferenced at line 245.
+
+src/main/java/com/jadventure/game/entities/Player.java:243: start of procedure getStats()
+241.       }
+242.   
+243. >     public void getStats(){
+244.           Item weapon = itemRepo.getItem(getWeapon());
+245.           String weaponName = weapon.getName();
+
+src/main/java/com/jadventure/game/entities/Player.java:244: 
+242.   
+243.       public void getStats(){
+244. >         Item weapon = itemRepo.getItem(getWeapon());
+245.           String weaponName = weapon.getName();
+246.           if (weaponName.equals(null)) {
+
+src/main/java/com/jadventure/game/entities/Entity.java:186: start of procedure getWeapon()
+  184.       }
+  185.   
+  186. >     public String getWeapon() {
+  187.           return weapon;
+  188.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:187: return from a call to String Entity.getWeapon()
+  185.   
+  186.       public String getWeapon() {
+  187. >         return weapon;
+  188.       }
+  189.   
+
+src/main/java/com/jadventure/game/entities/Player.java:244: 
+242.   
+243.       public void getStats(){
+244. >         Item weapon = itemRepo.getItem(getWeapon());
+245.           String weaponName = weapon.getName();
+246.           if (weaponName.equals(null)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:43: 
+  41.   	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43. >             return null;
+  44.           }
+  45.   	    if (!itemMap.containsKey(id)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/entities/Player.java:245: 
+243.       public void getStats(){
+244.           Item weapon = itemRepo.getItem(getWeapon());
+245. >         String weaponName = weapon.getName();
+246.           if (weaponName.equals(null)) {
+247.               weaponName = "hands";

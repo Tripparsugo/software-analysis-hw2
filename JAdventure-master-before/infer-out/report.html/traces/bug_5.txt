@@ -1,0 +1,192 @@
+#5
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:172: error: Null Dereference
+  object `requiredItem` last assigned on line 171 could be null and is dereferenced by call to `hasItem(...)` at line 172.
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:160: start of procedure matchesConditions(...)
+158.       }
+159.   
+160. >     public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161.           switch(line.getCondition()) {
+162.               case ALLY:
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:161: 
+159.   
+160.       public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161. >         switch(line.getCondition()) {
+162.               case ALLY:
+163.                   return npc.getAllies().contains(player.getCurrentCharacterType());
+
+src/main/java/com/jadventure/game/conversation/Line.java:44: start of procedure getCondition()
+  42.       }
+  43.   
+  44. >     public ConditionType getCondition() {
+  45.           return condition;
+  46.       }
+
+src/main/java/com/jadventure/game/conversation/Line.java:45: return from a call to ConditionType Line.getCondition()
+  43.   
+  44.       public ConditionType getCondition() {
+  45. >         return condition;
+  46.       }
+  47.   
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:161: Taking true branch
+159.   
+160.       public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161. >         switch(line.getCondition()) {
+162.               case ALLY:
+163.                   return npc.getAllies().contains(player.getCurrentCharacterType());
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:161: Taking true branch
+159.   
+160.       public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161. >         switch(line.getCondition()) {
+162.               case ALLY:
+163.                   return npc.getAllies().contains(player.getCurrentCharacterType());
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:161: Taking true branch
+159.   
+160.       public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161. >         switch(line.getCondition()) {
+162.               case ALLY:
+163.                   return npc.getAllies().contains(player.getCurrentCharacterType());
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:161: Taking false branch
+159.   
+160.       public static boolean matchesConditions(NPC npc, Player player, Line line) {
+161. >         switch(line.getCondition()) {
+162.               case ALLY:
+163.                   return npc.getAllies().contains(player.getCurrentCharacterType());
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:170: 
+168.                   return player.getLevel() >= requiredLevel;
+169.               case ITEM:
+170. >                 ItemRepository itemRepo = GameBeans.getItemRepository();
+171.                   Item requiredItem = itemRepo.getItem(line.getConditionParameter());
+172.                   return player.hasItem(requiredItem);
+
+src/main/java/com/jadventure/game/GameBeans.java:14: start of procedure getItemRepository()
+  12.   public final class GameBeans {
+  13.   
+  14. >     public static ItemRepository getItemRepository() {
+  15.           return ItemRepository.createRepo();
+  16.       }
+
+src/main/java/com/jadventure/game/GameBeans.java:15: 
+  13.   
+  14.       public static ItemRepository getItemRepository() {
+  15. >         return ItemRepository.createRepo();
+  16.       }
+  17.   
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:100: start of procedure createRepo()
+     98.   
+     99.       private static ItemRepository itemRepository = null;
+    100. >     public static ItemRepository createRepo() {
+    101.           if (itemRepository == null) {
+    102.               File file = new File(new File(System.getProperty("user.dir")), "json");
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:101: Taking false branch
+     99.       private static ItemRepository itemRepository = null;
+    100.       public static ItemRepository createRepo() {
+    101. >         if (itemRepository == null) {
+    102.               File file = new File(new File(System.getProperty("user.dir")), "json");
+    103.   
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:112: return from a call to ItemRepository ItemRepository.createRepo()
+    110.               itemRepository.load(dataFile);
+    111.           }
+    112. >         return itemRepository;
+    113.       }
+    114.   
+
+src/main/java/com/jadventure/game/GameBeans.java:15: return from a call to ItemRepository GameBeans.getItemRepository()
+  13.   
+  14.       public static ItemRepository getItemRepository() {
+  15. >         return ItemRepository.createRepo();
+  16.       }
+  17.   
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:171: 
+169.               case ITEM:
+170.                   ItemRepository itemRepo = GameBeans.getItemRepository();
+171. >                 Item requiredItem = itemRepo.getItem(line.getConditionParameter());
+172.                   return player.hasItem(requiredItem);
+173.               case CHAR_TYPE:
+
+src/main/java/com/jadventure/game/conversation/Line.java:48: start of procedure getConditionParameter()
+  46.       }
+  47.   
+  48. >     public String getConditionParameter() {
+  49.           return conditionParameter;
+  50.       }
+
+src/main/java/com/jadventure/game/conversation/Line.java:49: return from a call to String Line.getConditionParameter()
+  47.   
+  48.       public String getConditionParameter() {
+  49. >         return conditionParameter;
+  50.       }
+  51.   
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:171: 
+169.               case ITEM:
+170.                   ItemRepository itemRepo = GameBeans.getItemRepository();
+171. >                 Item requiredItem = itemRepo.getItem(line.getConditionParameter());
+172.                   return player.hasItem(requiredItem);
+173.               case CHAR_TYPE:
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:41: start of procedure getItem(...)
+  39.       }
+  40.   
+  41. > 	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43.               return null;
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:42: Taking true branch
+  40.   
+  41.   	public Item getItem(String id) {
+  42. >         if (id == null || id.trim().length() == 0) {
+  43.               return null;
+  44.           }
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:43: 
+  41.   	public Item getItem(String id) {
+  42.           if (id == null || id.trim().length() == 0) {
+  43. >             return null;
+  44.           }
+  45.   	    if (!itemMap.containsKey(id)) {
+
+src/main/java/com/jadventure/game/repository/ItemRepository.java:48: return from a call to Item ItemRepository.getItem(String)
+  46.   	        throw new RepositoryException("Argument 'id' with value '" + id + "' not found in repository.");
+  47.   	    }
+  48. > 	    return itemMap.get(id);
+  49.   	}
+  50.   	
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:172: 
+170.                   ItemRepository itemRepo = GameBeans.getItemRepository();
+171.                   Item requiredItem = itemRepo.getItem(line.getConditionParameter());
+172. >                 return player.hasItem(requiredItem);
+173.               case CHAR_TYPE:
+174.                   String charType = line.getConditionParameter();
+
+src/main/java/com/jadventure/game/entities/Player.java:506: start of procedure hasItem(...)
+  504.       }
+  505.   
+  506. >     public boolean hasItem(Item item) {
+  507.           List<Item> searchEquipment = searchEquipment(item.getName(), getEquipment());
+  508.           List<Item> searchStorage = searchItem(item.getName(), getStorage());
+
+src/main/java/com/jadventure/game/entities/Player.java:507: 
+  505.   
+  506.       public boolean hasItem(Item item) {
+  507. >         List<Item> searchEquipment = searchEquipment(item.getName(), getEquipment());
+  508.           List<Item> searchStorage = searchItem(item.getName(), getStorage());
+  509.           return !(searchEquipment.size() == 0 && searchStorage.size() == 0);

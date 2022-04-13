@@ -1,0 +1,87 @@
+#4
+src/main/java/com/jadventure/game/Trading.java:116: error: Null Dereference
+  object returned by `itemValues.get(itemIds.get(itemName))` could be null and is dereferenced at line 116.
+
+src/main/java/com/jadventure/game/Trading.java:100: start of procedure tradeItem(...)
+ 98.       }
+ 99.   
+100. >     private Item tradeItem(Entity seller, Entity buyer, String itemName) {
+101.           List<Item> itemList = seller.getStorage().getItems();
+102.           Map<String, String> itemIds = new HashMap<>();
+
+src/main/java/com/jadventure/game/Trading.java:101: 
+ 99.   
+100.       private Item tradeItem(Entity seller, Entity buyer, String itemName) {
+101. >         List<Item> itemList = seller.getStorage().getItems();
+102.           Map<String, String> itemIds = new HashMap<>();
+103.           Map<String, Integer> itemValues = new HashMap<>();
+
+src/main/java/com/jadventure/game/entities/Entity.java:330: start of procedure getStorage()
+  328.       }
+  329.   
+  330. >     public Storage getStorage() {
+  331.           return storage;
+  332.       }
+
+src/main/java/com/jadventure/game/entities/Entity.java:331: return from a call to Storage Entity.getStorage()
+  329.   
+  330.       public Storage getStorage() {
+  331. >         return storage;
+  332.       }
+  333.   
+
+src/main/java/com/jadventure/game/Trading.java:101: Skipping getItems(): empty list of specs
+ 99.   
+100.       private Item tradeItem(Entity seller, Entity buyer, String itemName) {
+101. >         List<Item> itemList = seller.getStorage().getItems();
+102.           Map<String, String> itemIds = new HashMap<>();
+103.           Map<String, Integer> itemValues = new HashMap<>();
+
+src/main/java/com/jadventure/game/items/Storage.java:141: Definition of getItems()
+  139.       }
+  140.       
+  141. >     public List<Item> getItems() {
+  142.           List<Item> items = new ArrayList<>();
+  143.           for (ItemStack itemStack : itemStacks) {
+
+src/main/java/com/jadventure/game/Trading.java:102: 
+100.       private Item tradeItem(Entity seller, Entity buyer, String itemName) {
+101.           List<Item> itemList = seller.getStorage().getItems();
+102. >         Map<String, String> itemIds = new HashMap<>();
+103.           Map<String, Integer> itemValues = new HashMap<>();
+104.           Map<String, Item> itemIdtoItem = new HashMap<>();
+
+src/main/java/com/jadventure/game/Trading.java:103: 
+101.           List<Item> itemList = seller.getStorage().getItems();
+102.           Map<String, String> itemIds = new HashMap<>();
+103. >         Map<String, Integer> itemValues = new HashMap<>();
+104.           Map<String, Item> itemIdtoItem = new HashMap<>();
+105.   
+
+src/main/java/com/jadventure/game/Trading.java:104: 
+102.           Map<String, String> itemIds = new HashMap<>();
+103.           Map<String, Integer> itemValues = new HashMap<>();
+104. >         Map<String, Item> itemIdtoItem = new HashMap<>();
+105.   
+106.           for (Item item : itemList) {
+
+src/main/java/com/jadventure/game/Trading.java:106: Taking false branch
+104.           Map<String, Item> itemIdtoItem = new HashMap<>();
+105.   
+106. >         for (Item item : itemList) {
+107.               String name = item.getName();
+108.               String id = item.getId();
+
+src/main/java/com/jadventure/game/Trading.java:115: Taking true branch
+113.           }
+114.   
+115. >         if (itemIds.containsKey(itemName)) {
+116.               int itemValue = itemValues.get(itemIds.get(itemName));
+117.               Item item = itemIdtoItem.get(itemIds.get(itemName));
+
+src/main/java/com/jadventure/game/Trading.java:116: 
+114.   
+115.           if (itemIds.containsKey(itemName)) {
+116. >             int itemValue = itemValues.get(itemIds.get(itemName));
+117.               Item item = itemIdtoItem.get(itemIds.get(itemName));
+118.               

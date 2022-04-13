@@ -1,0 +1,38 @@
+#3
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:103: error: Null Dereference
+  object returned by `line.get("player")` could be null and is dereferenced at line 103.
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:95: start of procedure getLine(...)
+93.       }
+94.   
+95. >     private Line getLine(int index, JsonArray conversation) {
+96.           JsonObject line = conversation.get(index).getAsJsonObject();
+97.           List<Integer> responses = new ArrayList<>();
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:96: Skipping getAsJsonObject(): unknown method
+94.   
+95.       private Line getLine(int index, JsonArray conversation) {
+96. >         JsonObject line = conversation.get(index).getAsJsonObject();
+97.           List<Integer> responses = new ArrayList<>();
+98.           if (line.get("response") != null) {
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:97: 
+95.       private Line getLine(int index, JsonArray conversation) {
+96.           JsonObject line = conversation.get(index).getAsJsonObject();
+97. >         List<Integer> responses = new ArrayList<>();
+98.           if (line.get("response") != null) {
+99.               for (JsonElement i : line.get("response").getAsJsonArray()) {
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:98: Taking false branch
+ 96.           JsonObject line = conversation.get(index).getAsJsonObject();
+ 97.           List<Integer> responses = new ArrayList<>();
+ 98. >         if (line.get("response") != null) {
+ 99.               for (JsonElement i : line.get("response").getAsJsonArray()) {
+100.                   responses.add(i.getAsInt());
+
+src/main/java/com/jadventure/game/conversation/ConversationManager.java:103: 
+101.               }
+102.           }
+103. >         String playerPrompt = line.get("player").getAsString();
+104.           String text = line.get("text").getAsString();
+105.           String[] con = line.get("condition").getAsString().split("=");
